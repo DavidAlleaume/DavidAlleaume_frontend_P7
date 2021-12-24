@@ -4,6 +4,7 @@
     background: linear-gradient(62deg, #ffffff 0%, #f8eee570 100%);
     border-radius: 16px;
     padding: 32px;
+    margin: auto;
 }
 .card__title {
     text-align: center;
@@ -63,6 +64,9 @@
 }
 .form-row__input::placeholder {
     color: #aaaaaa;
+}
+.error-message {
+    color: red;
 }
 
 

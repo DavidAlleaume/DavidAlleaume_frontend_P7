@@ -15,6 +15,12 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;800&display=swap");
+
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
 #app {
   font-family: "Poppins", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -22,5 +28,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+body {
+  padding: 32px;
+  min-width: 300px;
 }
 </style>

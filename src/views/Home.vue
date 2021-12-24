@@ -1,6 +1,6 @@
 <template>
-<div class="container">
-    <img class="logo mb-5" src="../assets/icon-above-font-resized.png" alt="Logo Groupomania" width="300">
+<div >
+    <img class="logo mb-5" src="../assets/icon-above-font-resized.png" alt="Logo Groupomania" width="230">
     <div class="card shadow">
             <h1 class="card__title" v-if="mode == 'login'">Connexion</h1>
             <h1 class="card__title" v-else>Inscription</h1>
@@ -22,20 +22,15 @@
             <div class="form-row">
                 <input v-model="password" class="form-row__input" type="password" placeholder="Mot de passe" />
             </div>
-            <div class="form-row" v-if="mode == 'login' && status == 'error_login'">
-                Adresse mail et/ou mot de passe invalide
-            </div>
-            <div class="form-row" v-if="mode == 'create' && status == 'error_create'">
-                Adresse mail déjà utilisée
+            <div class="form-row error-message">
+                {{ message }}
             </div>
             <div class="form-row">
                 <button @click="login()" class="button" :class="{ 'button--disabled': !validatedFields }" v-if="mode == 'login'">
-                    <span v-if="status == 'loading'">Connexion en cours...</span>
-                    <span v-else>Connexion</span>
+                    <span>Connexion</span>
                 </button>
                 <button @click="createAccount()" class="button" :class="{ 'button--disabled': !validatedFields }" v-else>
-                    <span v-if="status == 'loading'">Création en cours...</span>
-                    <span v-else>Créer mon compte</span>
+                    <span>Créer mon compte</span>
                 </button>
             </div>
         </div>
@@ -45,9 +40,68 @@
 </template>
 
 <script>
+
+import axios from "axios" 
+
 export default {
-    
+    name: "Login",
+    data: function() {
+        return {
+            mode: "login",
+            firstname: "",
+            lastname: "",
+            email: "",
+            password: "",
+            message:""  
+        }
+    },
+    computed: {
+        validatedFields: function () {
+            if (this.mode == "create") {
+                if (this.email != "" && this.firstname != "" && this.lastname != "" && this.password != "") {
+                    return true
+                } else {
+                    return false
+                }
+            } else {
+                if (this.email != "" && this.password != "") {
+                    return true
+                } else {
+                    return false
+                }
+            }
+        }
+    },   
+    methods: {
+        switchToCreateAccount: function () {
+            this.mode = "create"
+        },
+        switchToLogin: function () {
+            this.mode = "login"
+        },
+        createAccount: function() {
+            let newUser = {
+                firstname: this.firstname,
+                lastname: this.lastname,
+                email: this.email,
+                password: this.password
+            }
+            axios.post('http://localhost:3000/api/user/signup', newUser)
+            .then((res) => {
+                if(res.status === 201) {
+                    this.mode = "login"
+                    this.message = "Votre compte a bien été créé ! veuillez vous identifier..."
+                    
+                }  
+            })
+            .catch(() => {
+                this.message = "Un problème est survenu, veuillez réessayer"
+            })
+        }
+    }
+
 }
+
 </script>
 
 <style scoped src="./Home.css">
