@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="navbar navbar-custom fixed-top navbar-light ">
+        <nav class="navbar navbar-custom fixed-top navbar-light">
             <form class="container-fluid justify-content-between">
                 <img  src="../assets/icon-left-font-resized.png" alt="Logo Groupomania" width="200">
                 <div>

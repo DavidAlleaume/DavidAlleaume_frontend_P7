@@ -32,5 +32,6 @@ export default {
 body {
   padding: 32px;
   min-width: 300px;
+  min-height: 100vh;
 }
 </style>

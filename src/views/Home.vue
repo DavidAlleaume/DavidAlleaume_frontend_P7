@@ -41,7 +41,7 @@
 
 <script>
 
-import axios from "axios" 
+import instance from '../axios'
 
 export default {
     name: "Login",
@@ -86,7 +86,7 @@ export default {
                 email: this.email,
                 password: this.password
             }
-            axios.post('http://localhost:3000/api/user/signup', newUser)
+            instance.post('/user/signup', newUser)
             .then((res) => {
                 if(res.status === 201) {
                     this.mode = "login"
@@ -99,31 +99,14 @@ export default {
             })
         },
         login: function() {
-            /*let user = localStorage.getItem('user')
-            // si il n'y a rien on initialise user avec un id à -1 et un token vide
-            if (!user) {
-                user = {
-                    userId: -1,
-                    token: '',
-                }
-            } else {
-                try {  // sinon on récupère l'id du user et le token
-                    user = JSON.parse(user);
-                } catch (ex) { // si le token ne peut pas être récupéré, on laisse user à sa valeur initiale
-                    user = {
-                        userId: -1,
-                        token: '',
-                    }
-                }
-            }*/
             let user = {
                 email: this.email,
                 password:this.password
             }
-            axios.post('http://localhost:3000/api/user/login', user)
+            instance.post('/user/login', user)
             .then((res) => {
                 if (res.status === 200) {
-                    localStorage.setItem("currentUser", JSON.stringify(res.data))
+                    localStorage.setItem("user", JSON.stringify(res.data))
                     this.$router.push('/profile')
                 }
             })
