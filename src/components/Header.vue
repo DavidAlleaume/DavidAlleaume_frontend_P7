@@ -1,16 +1,16 @@
 <template>
     <div>
-        <nav class="navbar fixed-top navbar-dark bg-dark">
+        <nav class="navbar navbar-custom fixed-top navbar-light ">
             <form class="container-fluid justify-content-between">
-                <img  src="../assets/icon-left-font-monochrome-white-resized.png" alt="Logo Groupomania" width="200">
+                <img  src="../assets/icon-left-font-resized.png" alt="Logo Groupomania" width="200">
                 <div>
-                    <button class="btn btn-nav btn-sm btn-outline-secondary" type="button">
+                    <button class="btn btn-nav btn-sm btn-custom" type="button">
                         <router-link to="/forum">Forum</router-link>
                     </button>
-                    <button class="btn btn-nav btn-sm btn-outline-secondary" type="button">
+                    <button class="btn btn-nav btn-sm btn-custom" type="button">
                         <router-link to="/profile"><fa icon="user" /></router-link>
                     </button>
-                    <button @click="logout()" class="btn btn-nav btn-sm btn-outline-secondary" type="button">
+                    <button @click="logout()" class="btn btn-nav btn-sm btn-custom" type="button">
                         <router-link to="/profile"><fa icon="sign-out-alt" /></router-link>   
                     </button>
                 </div>
@@ -26,7 +26,7 @@ export default {
     component: {},
     methods: {
     logout: function () {
-      this.$store.commit("logout");
+      localStorage.clear()
       this.$router.push("/");
     }
   }
@@ -44,5 +44,12 @@ export default {
     }
     .btn-nav a:hover {
         color: rgba(255, 255, 255, 0.808)
+    }
+    .navbar-custom {
+        background-color: white;
+        border-bottom: solid 1px #bdc0c4;
+    }
+    .btn-custom {
+        background-color: #fd2d01;
     }
 </style>

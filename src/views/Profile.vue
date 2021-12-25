@@ -1,5 +1,6 @@
 <template>
     <header-top></header-top>
+    <h1>Voici votre profil !</h1>
     
 </template>
 
@@ -8,7 +9,7 @@
 import Header from '../components/Header.vue'
 
 export default {
-  name: 'Forum',
+  name: 'Profile',
   components: {
     'header-top': Header
   }
