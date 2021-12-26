@@ -21,12 +21,14 @@
 
 <script>
 
+import user from '../user_auth'
+
 export default {
     name: 'Header',
     component: {},
     methods: {
     logout: function () {
-      localStorage.clear()
+      localStorage.removeItem(user)
       this.$router.push("/");
     }
   }
