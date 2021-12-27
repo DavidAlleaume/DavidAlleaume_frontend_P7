@@ -2,9 +2,10 @@
     <div>
        <div class="mt-5">
             <div :key="index" v-for="(post, index) in allPosts">
-                <p>{{ post.User.firstname }}  {{ post.User.lastname }}</p>
-                <div class="card mb-3">
+                <p class="user-name">{{ post.User.firstname }}  {{ post.User.lastname }}</p>
+                <div class="card mb-3 post-content">
                     <p>{{ post.content }}</p>
+                    <div class="btn-supr btn btn-danger"><fa icon="trash" /></div>
                 </div>
             </div>
         </div>
@@ -36,6 +37,22 @@ export default {
 </script>
 
 <style scoped>
+
+.user-name {
+    font-weight: bold;
+}
+
+.post-content {
+    position: relative;
+    padding: 20px;
+    font-size: 20px;
+}
+
+.btn-supr {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
 
 
 </style>
