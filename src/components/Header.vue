@@ -1,22 +1,41 @@
 <template>
-    <div>
-        <nav class="navbar navbar-custom fixed-top navbar-light">
-            <form class="container-fluid justify-content-between">
-                <img  src="../assets/icon-left-font-resized.png" alt="Logo Groupomania" width="200">
-                <div>
-                    <button class="btn btn-nav btn-sm btn-custom" type="button">
-                        <router-link to="/forum">Forum</router-link>
-                    </button>
-                    <button class="btn btn-nav btn-sm btn-custom" type="button">
-                        <router-link to="/profile"><fa icon="user-cog" /></router-link>
-                    </button>
-                    <button @click="logout()" class="btn btn-nav btn-sm btn-custom" type="button">
-                        <router-link to="/profile"><fa icon="sign-out-alt" /></router-link>   
-                    </button>
-                </div>
-            </form>
+    <div class="container fixed-top">
+        <nav class="navbar navbar-expand-md navbar-light mt-3">
+            <img  src="../assets/icon-left-font-resized.png" alt="Logo Groupomania" width="300">
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#toggleMobileMenu"
+                aria-controls="toggleMobileMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="toggleMobileMenu">
+                <ul class="navbar-nav ms-auto text-center">
+                    <li>
+                        <button class="btn btn-nav btn-sm btn-custom" type="button">
+                            <router-link to="/forum">Forum</router-link>
+                        </button>
+                    </li>
+                    <li>
+                        <button class="btn btn-nav btn-sm btn-custom" type="button">
+                            <router-link to="/profile"><fa icon="user-cog" /></router-link>
+                        </button>
+                    </li>
+                    <li>
+                        <button @click="logout()" class="btn btn-nav btn-sm btn-custom" type="button">
+                            <router-link to="/profile"><fa icon="sign-out-alt" /></router-link>   
+                        </button>
+                    </li>
+                </ul>
+            </div>
+
         </nav>
     </div>
+
 </template>
 
 <script>
