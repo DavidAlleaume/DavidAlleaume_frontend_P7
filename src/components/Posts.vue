@@ -1,12 +1,14 @@
 <template>
     <div>
-       <div class="mt-5">
+       <div >
             <div :key="index" v-for="(post, index) in allPosts">
-                <p class="user-name">{{ post.User.firstname }}  {{ post.User.lastname }}</p>
-                <p>Le {{ post.createdAt }}</p>
-                <div class="card mb-3 post-card shadow-sm">
+                <div class="row">
+                    <p class="user-name col-6">{{ post.User.firstname }}  {{ post.User.lastname }}</p>
+                    <p class="col-6">Le {{ dateTime(post.createdAt) }} à {{ hour(post.createdAt) }}</p>
+                </div>
+                <div class="card mb-5 post-card shadow-sm">
                     <p class="post-content">{{ post.content }}</p>
-                    <button v-if="post.userId == userId" @click="deletePost(post)" class="btn-supr btn btn-danger"><fa icon="trash" /></button>
+                    <button v-if="post.userId == userId" @click="deletePost(post)" class="btn-supr btn"><fa icon="trash" /></button>
                 </div>
             </div>
         </div>
@@ -15,6 +17,7 @@
 
 <script>
 
+import moment from 'moment'
 import instance from '../axios'
 import user from '../user_auth'
 
@@ -43,6 +46,12 @@ export default {
                     this.$router.go()
                 })
             }
+        },
+        dateTime: function(value) {
+            return moment(value).format('DD.MM.YY')
+        },
+        hour: function(value) {
+            return moment(value).format('HH:mm')
         }
     }
 }
@@ -52,6 +61,7 @@ export default {
 
 .user-name {
     font-weight: bold;
+    font-size: 15px;
 }
 
 .post-card {
@@ -68,11 +78,15 @@ export default {
     right: 10px;
     width: 30px;
     height: 30px;
+    color: white;
+    background-color: #fd2d01
 }
 .post-content {
     font-size: 15px;
     padding-right: 50px;
 }
-
+p {
+    font-size: 12px;
+}
 
 </style>

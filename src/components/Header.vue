@@ -49,7 +49,7 @@ export default {
     }
     .navbar-custom {
         background-color: white;
-        border-bottom: solid 1px #bdc0c4;
+        
     }
     .btn-custom {
         background-color: #fd2d01;

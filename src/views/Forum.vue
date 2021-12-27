@@ -1,11 +1,11 @@
 <template>
   <header-top></header-top>
   <div class="container col-6">
-    <h1 class="mb-5 mt-5">Bienvenue sur le forum !</h1>
-    <div class="form-floating">
-      <textarea class="form-control mb-2" v-model="content" aria-label="Contenu du message"></textarea>
-      <label for="floatingTextarea">Exprimez-vous...</label>
-      <button @click="createPost()" class="btn btn-outline-primary"><fa icon="paper-plane" /> Envoyer</button>
+    <h1 class="mb-5">Bienvenue sur le forum !</h1>
+    <div class="form-floating post-form">
+      <textarea class="input-custom form-control mb-2" v-model="content" aria-label="Contenu du message"></textarea>
+      <label class="input-label" for="floatingTextarea">Exprimez-vous...</label>
+      <button @click="createPost()" class="btn-custom btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Envoyer votre message"><fa icon="paper-plane" /></button>
       <p>{{ errorMessage }}</p>
     </div>
     <Posts></Posts>
@@ -49,5 +49,23 @@ export default {
 </script>
 
 <style scoped>
+
+h1 {
+  margin-top: 100px;
+}
+
+.input-custom {
+  border: solid 1px #fd2d01;
+}
+.input-label {
+  color: #ff8181;
+}
+.btn-custom {
+  color: white;
+  background-color: #fd2d01;
+}
+.post-form {
+  margin-bottom: 80px;
+}
 
 </style>
