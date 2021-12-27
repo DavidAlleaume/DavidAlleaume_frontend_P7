@@ -3,6 +3,7 @@
        <div class="mt-5">
             <div :key="index" v-for="(post, index) in allPosts">
                 <p class="user-name">{{ post.User.firstname }}  {{ post.User.lastname }}</p>
+                <p>Le {{ post.createdAt }}</p>
                 <div class="card mb-3 post-content">
                     <p>{{ post.content }}</p>
                     <div class="btn-supr btn btn-danger"><fa icon="trash" /></div>

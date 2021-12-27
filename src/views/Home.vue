@@ -108,6 +108,7 @@ export default {
                 if (res.status === 200) {
                     localStorage.setItem("user", JSON.stringify(res.data))
                     this.$router.push('/profile')
+                    .then(() => this.$router.go())
                 }
             })
             .catch((res) => {

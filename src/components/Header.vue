@@ -28,7 +28,7 @@ export default {
     component: {},
     methods: {
     logout: function () {
-      localStorage.removeItem(user)
+      localStorage.clear(user)
       this.$router.push("/");
     }
   }

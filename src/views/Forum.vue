@@ -28,7 +28,7 @@ export default {
   data() {
     return {
       content: "",
-      errorMessage: ""
+      errorMessage: "",
     }
   },
   methods: {
@@ -40,9 +40,7 @@ export default {
       let formData = new FormData()
       formData.append('content', this.content)
       instance.post(`/post/`, formData, {headers: {"Authorization": "Bearer " + user.token}})
-      .then(() => {
-        window.location.reload
-      })
+      .then(() => this.$router.go())
       .catch(error => console.log(error))
     }
   }   

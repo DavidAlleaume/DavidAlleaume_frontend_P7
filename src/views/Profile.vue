@@ -25,8 +25,6 @@ import instance from '../axios'
 import Header from '../components/Header.vue'
 import user from '../user_auth'
 
-
-
 export default {
   name: 'Profile',
   data() {
@@ -36,12 +34,18 @@ export default {
       error: ""
     }
   },
+  props: {
+    userId: {
+      type: String,
+    }
+  },
   components: {
     'header-top': Header,
     
   },
-  mounted() {
+  created() {
     instance.get(`/user/${user.userId}`, {headers: {"Authorization": "Bearer " + user.token}})
+    
     .then((res) => {
       this.user = res.data
       console.log(res.data)
