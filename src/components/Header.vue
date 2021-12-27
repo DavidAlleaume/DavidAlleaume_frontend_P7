@@ -8,7 +8,7 @@
                         <router-link to="/forum">Forum</router-link>
                     </button>
                     <button class="btn btn-nav btn-sm btn-custom" type="button">
-                        <router-link to="/profile"><fa icon="user" /></router-link>
+                        <router-link to="/profile"><fa icon="user-cog" /></router-link>
                     </button>
                     <button @click="logout()" class="btn btn-nav btn-sm btn-custom" type="button">
                         <router-link to="/profile"><fa icon="sign-out-alt" /></router-link>   

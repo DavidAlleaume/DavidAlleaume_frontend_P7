@@ -5,7 +5,7 @@
     <div class="form-floating">
       <textarea class="form-control mb-2" v-model="content" aria-label="Contenu du message"></textarea>
       <label for="floatingTextarea">Exprimez-vous...</label>
-      <button @click="createPost()" class="btn btn-outline-primary">Postez votre message</button>
+      <button @click="createPost()" class="btn btn-outline-primary"><fa icon="paper-plane" /> Envoyer</button>
       <p>{{ errorMessage }}</p>
     </div>
     <Posts></Posts>
