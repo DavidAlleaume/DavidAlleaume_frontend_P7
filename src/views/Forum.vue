@@ -5,8 +5,9 @@
     <div class="form form-floating post-form">
       <textarea class="input-custom form-control mb-2" v-model="content" aria-label="Contenu du message"></textarea>
       <label class="input-label" for="floatingTextarea">Exprimez-vous...</label>
-      <div id="preview" v-if="preview">
+      <div id="preview" v-if="preview && displayPreview == true">
         <img class="preview" :src="preview" :alt="preview">
+        <button type="button" @click="cancelAttachment()" class="btn-close" aria-label="Close"></button>
       </div>
       <div class="form-group mb-3">
             <input 
@@ -45,6 +46,7 @@ export default {
       file: "",
       preview: "",
       errorMessage: "",
+      displayPreview: ""
     }
   },
   props: {
@@ -54,17 +56,20 @@ export default {
   },
   methods: {
     selectFile(event) {
-            /* sur le onchange on va attribuer cette valeur à file (nécessaire pour l'envoi au backend) */
-            this.file = this.$refs.file.files[0]
-            let input = event.target
-            if(input.files) {
-                let reader = new FileReader()
-                reader.onload = (e) => {
-                    this.preview = e.target.result
-                }
-                reader.readAsDataURL(input.files[0])
-            }
-        },
+      this.file = this.$refs.file.files[0]
+      let input = event.target
+      if(input.files) {
+        let reader = new FileReader()
+        reader.onload = (e) => {
+          this.preview = e.target.result
+          this.displayPreview = true
+        }
+        reader.readAsDataURL(input.files[0])
+      }
+    },
+    cancelAttachment: function() {
+      this.displayPreview = false
+    },
     createPost: function() {
       if(!this.content) {
         this.errorMessage = `Vous devez rédiger un message !`

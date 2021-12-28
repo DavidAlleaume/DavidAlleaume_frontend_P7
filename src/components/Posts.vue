@@ -11,7 +11,7 @@
                         <img v-if="post.attachment" class="post-attachment" v-bind:src="post.attachment" alt="Image postée" width="200"/>
                     </div>
                     <p class="post-content">{{ post.content }}</p>
-                    <button v-if="post.userId == userId" @click="deletePost(post)" class="btn-supr btn"><fa icon="trash" /></button>
+                    <button v-if="post.userId == userId || isAdmin == true" @click="deletePost(post)" class="btn-supr btn"><fa icon="trash" /></button>
                 </div>
             </div>
         </div>
@@ -30,6 +30,7 @@ export default {
         return {
             allPosts: [],
             userId: user.userId,
+            isAdmin: user.isAdmin
         }
     },
     mounted() {
