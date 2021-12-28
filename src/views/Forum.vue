@@ -1,6 +1,6 @@
 <template>
   <header-top></header-top>
-  <div class="container col-6">
+  <div class="container  col-sm-10 col-lg-8">
     <h1 class="mb-5">Bienvenue sur le forum !</h1>
     <div class="form form-floating post-form">
       <textarea class="input-custom form-control mb-2" v-model="content" aria-label="Contenu du message"></textarea>
@@ -19,7 +19,7 @@
               @change="selectFile">
             <label class="file-label" for="file"><fa class="file-upload-icon" icon="file-upload" />Ajouter une image</label>    
     </div>
-      <button @click="createPost()" class="btn-custom btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Envoyer votre message"><fa icon="paper-plane" /></button>
+      <button @click="createPost()" class="btn-custom-send btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Envoyer votre message"><fa icon="paper-plane" class="plane-icon" /></button>
       <p>{{ errorMessage }}</p>
     </div>
     
@@ -93,46 +93,6 @@ export default {
 
 </script>
 
-<style scoped>
-
-h1 {
-  margin-top: 130px;
-}
-
-.input-custom {
-  border: solid 1px #fd2d01;
-}
-.input-label {
-  color: #ff8181;
-}
-.btn-custom {
-  color: white;
-  background-color: #fd2d01;
-}
-.post-form {
-  margin-bottom: 80px;
-}
-input[type="file"] {
-  display: none;
-}
-.file-label {
-  color: white;
-  height: 50px;
-  width: 200px;
-  background-color: #ff8181;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 15px;
-  padding: 10px;
-  margin: auto;
-}
-.file-upload-icon {
-  font-size: 20px;
-}
-.preview {
-  margin: 10px;
-  width: 200px;
-}
+<style scoped src="./Forum.css">
 
 </style>

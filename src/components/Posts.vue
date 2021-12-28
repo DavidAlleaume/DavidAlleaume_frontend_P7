@@ -2,7 +2,7 @@
     <div>
        <div >
             <div :key="index" v-for="(post, index) in allPosts">
-                <div class="row">
+                <div class="row post-infos">
                     <p class="user-name col-6">{{ post.User.firstname }}  {{ post.User.lastname }}</p>
                     <p class="col-6">Le {{ dateTime(post.createdAt) }} à {{ hour(post.createdAt) }}</p>
                 </div>
@@ -10,8 +10,8 @@
                     <div>
                         <img v-if="post.attachment" class="post-attachment" v-bind:src="post.attachment" alt="Image postée" width="200"/>
                     </div>
-                    <p class="post-content">{{ post.content }}</p>
-                    <button v-if="post.userId == userId || isAdmin == true" @click="deletePost(post)" class="btn-supr btn"><fa icon="trash" /></button>
+                    <p class="post-content mt-2">{{ post.content }}</p>
+                    <button v-if="post.userId == userId || isAdmin == true" @click="deletePost(post)" class="btn-suppr btn"><fa icon="trash" class="trash-icon" /></button>
                 </div>
             </div>
         </div>
@@ -61,36 +61,6 @@ export default {
 }
 </script>
 
-<style scoped>
-
-.user-name {
-    font-weight: bold;
-    font-size: 15px;
-}
-
-.post-card {
-    position: relative;
-    padding: 20px;
-    font-size: 20px;
-}
-
-.btn-supr {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    top: 10px;
-    right: 10px;
-    width: 30px;
-    height: 30px;
-    color: white;
-    background-color: #fd2d01
-}
-.post-content {
-    font-size: 15px;
-    padding-right: 50px;
-}
-p {
-    font-size: 12px;
-}
+<style scoped src="./Posts.css">
 
 </style>

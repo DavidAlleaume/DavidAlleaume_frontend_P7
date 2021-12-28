@@ -1,0 +1,51 @@
+h1 {
+    margin-top: 130px;
+  }
+  
+.input-custom {
+    border: solid 1px #fd2d01;
+}
+.input-label {
+    color: #ff8181;
+}
+.btn-custom-send {
+    background-color: #2e405e;
+    width: 200px;
+}
+.btn-custom-send:hover {
+    background-color: #091f43;
+}
+.post-form {
+    margin-bottom: 80px;
+}
+input[type="file"] {
+    display: none;
+}
+.file-label {
+    color: white;
+    height: 50px;
+    width: 200px;
+    background-color: #ff8181;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 15px;
+    padding: 10px;
+    margin: auto;
+}
+.file-upload-icon {
+    font-size: 20px;
+}
+.plane-icon {
+    color: white;
+}
+.preview {
+    margin: 10px;
+    width: 200px;
+}
+
+@media screen and (max-width: 400px) {
+    h1 {
+        font-size: 20px;
+    }
+}

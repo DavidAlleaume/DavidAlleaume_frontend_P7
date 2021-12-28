@@ -1,7 +1,7 @@
 <template>
-    <div class="container fixed-top">
-        <nav class="navbar navbar-expand-md navbar-light mt-3">
-            <img  src="../assets/icon-left-font-resized.png" alt="Logo Groupomania" width="300">
+    <div class="container">
+        <nav class="navbar fixed-top navbar-custom navbar-expand-md navbar-dark p-3">
+            <img class="logo" src="../assets/icon-left-font-monochrome-white-resized.png" alt="Logo Groupomania" width=300>
             <button
                 class="navbar-toggler"
                 type="button"
@@ -13,11 +13,11 @@
             >
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="toggleMobileMenu">
-                <ul class="navbar-nav ms-auto text-center">
+            <div class="collapse navbar-collapse text-left" id="toggleMobileMenu">
+                <ul class="navbar-nav ms-auto">
                     <li>
                         <button class="btn btn-nav btn-sm btn-custom" type="button">
-                            <router-link to="/forum">Forum</router-link>
+                            <router-link class-active="active" to="/forum">Forum</router-link>
                         </button>
                     </li>
                     <li>
@@ -67,10 +67,24 @@ export default {
         color: rgba(255, 255, 255, 0.808)
     }
     .navbar-custom {
-        background-color: white;
-        
+        background-color: #091f43;
+        border-bottom: 2px solid #fd2d01;
+    }
+    .navbar-toggler-icon {
+        color: white;
     }
     .btn-custom {
-        background-color: #fd2d01;
+        background-color: #2e405e;
     }
+    @media screen and (max-width: 500px) {
+        .logo {
+            width:250px
+        }
+    }
+    @media screen and (max-width: 400px) {
+        .logo {
+            width:200px;
+        }
+    }
+
 </style>
