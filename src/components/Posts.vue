@@ -7,6 +7,9 @@
                     <p class="col-6">Le {{ dateTime(post.createdAt) }} à {{ hour(post.createdAt) }}</p>
                 </div>
                 <div class="card mb-5 post-card shadow-sm">
+                    <div>
+                        <img v-if="post.attachment" class="post-attachment" v-bind:src="post.attachment" alt="Image postée" width="200"/>
+                    </div>
                     <p class="post-content">{{ post.content }}</p>
                     <button v-if="post.userId == userId" @click="deletePost(post)" class="btn-supr btn"><fa icon="trash" /></button>
                 </div>
