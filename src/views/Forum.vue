@@ -7,9 +7,13 @@
       <label class="input-label" for="floatingTextarea">Exprimez-vous...</label>
       <div id="preview" v-if="preview && displayPreview == true">
         <img class="preview" :src="preview" :alt="preview">
-        <button type="button" @click="cancelAttachment()" class="btn-close" aria-label="Close"></button>
+        <button type="button" @click="cancelAttachment()" 
+          class="btn-close"
+          data-toggle="tooltip" data-placement="right" title="Cliquez pour supprimer l'image" 
+          aria-label="Close">
+        </button>
       </div>
-      <div class="form-group mb-3">
+      <div class="form-group mb-3" data-toggle="tooltip" data-placement="right" title="Cliquez pour sélectionner une image">
             <input 
               type="file" 
               id="file" 
@@ -19,7 +23,11 @@
               @change="selectFile">
             <label class="file-label" for="file"><fa class="file-upload-icon" icon="file-upload" />Ajouter une image</label>    
     </div>
-      <button @click="createPost()" class="btn-custom-send btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Envoyer votre message"><fa icon="paper-plane" class="plane-icon" /></button>
+      <button @click="createPost()" 
+        class="btn-custom-send btn" 
+        data-toggle="tooltip" data-placement="right" title="Postez votre message">
+        <fa icon="paper-plane" class="plane-icon" />
+      </button>
       <p>{{ errorMessage }}</p>
     </div>
     

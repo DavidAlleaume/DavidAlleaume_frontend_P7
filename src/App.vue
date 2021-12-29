@@ -27,10 +27,8 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #091f43;
-  margin-top: 60px;
 }
 body {
-  padding: 32px;
   min-width: 300px;
   min-height: 100vh;
 }

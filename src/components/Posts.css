@@ -25,10 +25,10 @@
     width: 30px;
     height: 30px;
     color: white;
-    background-color: #ff8181;
+    background-color: #fd2d01;
 }
 .btn-suppr:hover {
-    background-color: #fd2d01;
+    background-color: #ff8181;
 }
 .post-content {
     font-size: 15px;

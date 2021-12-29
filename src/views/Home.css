@@ -1,4 +1,15 @@
-.card {
+header {
+    background-color: #091f43;
+    height: 200px;
+    width: 100%;
+    margin-bottom: 100px;
+    border-bottom: 3px solid #fd2d01
+}
+.logo-login {
+   width: 400px;
+   margin-top:65px
+}
+.login-form {
     max-width: 100%;
     width: 540px;
     background: linear-gradient(62deg, #ffffff 0%, #eeecec 100%);
@@ -6,11 +17,11 @@
     padding: 32px;
     margin: auto;
 }
-.card__title {
+.card-title {
     text-align: center;
     font-weight: 800;
 }
-.card__subtitle {
+.card-subtitle {
     text-align: center;
     color: #666;
     font-weight: 500;
@@ -26,11 +37,11 @@
     padding: 16px;
     transition: 0.4s background-color;
 }
-.card__action {
+.card-action {
     color: #2196f3;
     text-decoration: underline;
 }
-.card__action:hover {
+.card-action:hover {
     cursor: pointer;
 }
 .button:hover {
@@ -51,7 +62,7 @@
     gap: 16px;
     flex-wrap: wrap;
 }
-.form-row__input {
+.form-row-input {
     padding: 8px;
     border: none;
     border-radius: 8px;
@@ -62,7 +73,7 @@
     min-width: 100px;
     color: black;
 }
-.form-row__input::placeholder {
+.form-row-input::placeholder {
     color: #aaaaaa;
 }
 .error-message {

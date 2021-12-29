@@ -12,7 +12,11 @@
                         <img v-if="post.attachment" class="post-attachment" v-bind:src="post.attachment" alt="Image postée" width="200"/>
                     </div>
                     <p class="post-content mt-2">{{ post.content }}</p>
-                    <button v-if="post.userId == userId || isAdmin == true" @click="deletePost(post)" class="btn-suppr btn"><fa icon="trash" class="trash-icon" /></button>
+                    <button v-if="post.userId == userId || isAdmin == true" @click="deletePost(post)" 
+                        class="btn-suppr btn" 
+                        data-toggle="tooltip" data-placement="right" title="Supprimer ce post">
+                        <fa icon="trash" class="trash-icon" />
+                    </button>
                 </div>
             </div>
         </div>

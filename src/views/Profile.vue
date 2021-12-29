@@ -11,11 +11,9 @@
     <p v-if="user.isAdmin === true"><strong>Rôle:</strong> Admin</p>
   </div>
   <div v-if="userId == user.id" >
-    <!--<form id="form" class="container col-6 mt-5" enctype="multipart/form-data" @submit.prevent="modifyAvatar()">
-      <label for="avatar" class="row form-label">Changer d'avatar</label>
-      <input type="file" class="row form-control-file" name="image" id="image" ref="image" v-on:change="handleFileUpload()" />
-    </form>-->
-    <button @click="deleteProfile()" type="button" class="btn btn-outline-danger mt-5">Supprimer votre compte</button>
+    <button @click="deleteProfile()" 
+      type="button" 
+      class="btn btn-danger mt-5">Supprimer votre compte</button>
   </div>
 </template>
 

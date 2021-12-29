@@ -1,26 +1,29 @@
 <template>
 <div >
-    <img class="logo mb-5" src="../assets/icon-above-font-resized.png" alt="Logo Groupomania" width="230">
-    <div class="card shadow">
-            <h1 class="card__title" v-if="mode == 'login'">Connexion</h1>
-            <h1 class="card__title" v-else>Inscription</h1>
-            <p class="card__subtitle" v-if="mode == 'login'">
+    <header>
+        <img class="logo-login" src="../assets/icon-left-font-monochrome-white-resized.png" alt="Logo Groupomania">
+    </header>
+    
+    <div class="card shadow login-form">
+            <h1 class="card-title" v-if="mode == 'login'">Connexion</h1>
+            <h1 class="card-title" v-else>Inscription</h1>
+            <p class="card-subtitle" v-if="mode == 'login'">
                 Vous n'avez pas encore de compte ?
-                <span class="card__action" @click="switchToCreateAccount()">Créer un compte</span>
+                <span class="card-action" @click="switchToCreateAccount()">Créer un compte</span>
             </p>
-            <p class="card__subtitle" v-else>
+            <p class="card-subtitle" v-else>
                 Vous avez déjà un compte ?
-                <span class="card__action" @click="switchToLogin()">Se connecter</span>
+                <span class="card-action" @click="switchToLogin()">Se connecter</span>
             </p>
             <div class="form-row">
-                <input v-model="email" class="form-row__input" type="text" placeholder="Adresse mail" />
+                <input v-model="email" class="form-row-input" type="text" placeholder="Adresse mail" />
             </div>
             <div class="form-row" v-if="mode == 'create'">
-                <input v-model="firstname" class="form-row__input" type="text" placeholder="Prénom" />
-                <input v-model="lastname" class="form-row__input" type="text" placeholder="Nom" />
+                <input v-model="firstname" class="form-row-input" type="text" placeholder="Prénom" />
+                <input v-model="lastname" class="form-row-input" type="text" placeholder="Nom" />
             </div>
             <div class="form-row">
-                <input v-model="password" class="form-row__input" type="password" placeholder="Mot de passe" />
+                <input v-model="password" class="form-row-input" type="password" placeholder="Mot de passe" />
             </div>
             <div class="form-row error-message">
                 {{ message }}
@@ -107,7 +110,7 @@ export default {
             .then((res) => {
                 if (res.status === 200) {
                     localStorage.setItem("user", JSON.stringify(res.data))
-                    this.$router.push('/profile')
+                    this.$router.push('/forum')
                     .then(() => this.$router.go())
                 }
             })

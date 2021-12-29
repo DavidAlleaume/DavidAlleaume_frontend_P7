@@ -6,14 +6,14 @@ h1 {
     border: solid 1px #fd2d01;
 }
 .input-label {
-    color: #ff8181;
+    color:#ff8181 ;
 }
 .btn-custom-send {
-    background-color: #2e405e;
+    background-color: #091f43;
     width: 200px;
 }
 .btn-custom-send:hover {
-    background-color: #091f43;
+    background-color: #2e405e;
 }
 .post-form {
     margin-bottom: 80px;
@@ -25,7 +25,7 @@ input[type="file"] {
     color: white;
     height: 50px;
     width: 200px;
-    background-color: #ff8181;
+    background-color: #fd2d01;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -40,8 +40,13 @@ input[type="file"] {
     color: white;
 }
 .preview {
+    position: relative;
     margin: 10px;
     width: 200px;
+}
+.btn-close {
+    position: absolute;
+    top: 75px;
 }
 
 @media screen and (max-width: 400px) {

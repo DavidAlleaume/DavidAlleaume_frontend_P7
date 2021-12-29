@@ -1,0 +1,33 @@
+.btn-nav {
+    margin: 5px;
+    background-color: #2e405e;
+}
+.btn-nav a {
+    color: white;
+    text-decoration: none;
+}
+.btn-nav a:hover {
+    color: #ff6242;
+}
+.navbar-custom {
+    background-color: #091f43;
+    border-bottom: 3px solid #fd2d01;
+}
+.navbar-toggler-icon {
+    color: white;
+}
+li {
+    margin-left: 10px;
+}
+
+
+@media screen and (max-width: 500px) {
+    .logo {
+        width:250px
+    }
+}
+@media screen and (max-width: 400px) {
+    .logo {
+        width:200px;
+    }
+}
