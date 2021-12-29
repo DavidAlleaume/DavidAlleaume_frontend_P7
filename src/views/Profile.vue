@@ -42,19 +42,21 @@ export default {
     
   },
   created() {
-    instance.get(`/user/${user.userId}`, {headers: {"Authorization": "Bearer " + user.token}})
-    
-    .then((res) => {
-      this.user = res.data
-      console.log(res.data)
-    })
-    .catch(() => {
-      this.error = "Un problème est survenu, veuillez réessayer"
-    })
+    this.getMyProfile()
   },
   methods: {
+    getMyProfile: function() {
+      instance.get(`/user/${user.userId}`, {headers: {"Authorization": "Bearer " + user.token}})
+      .then((res) => {
+        this.user = res.data
+        console.log(res.data)
+      })
+      .catch(() => {
+        this.error = "Un problème est survenu, veuillez réessayer"
+      })
+    },
     deleteProfile: function () {
-      if(confirm("Attention, vous êtes sur le point de supprimer votre compte !")) {
+      if(confirm("Vous êtes sur le point de supprimer ce compte et tous les posts qui y sont associés! Cette action est irréversible.")) {
         instance.delete(`/user/${user.userId}`, {headers: {"Authorization": "Bearer " + user.token}})
         .then(() => {
           localStorage.clear()
@@ -64,10 +66,8 @@ export default {
           this.error = "Un problème est survenu, veuillez réessayer"
         })
       }
-    }
-    
+    } 
   }
-
 }
 
 </script>

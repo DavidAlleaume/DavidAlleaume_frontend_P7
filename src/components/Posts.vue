@@ -5,7 +5,7 @@
                 
                 <div class="card mb-5 post-card shadow-sm">
                     <div class="card-header post-infos mb-3">
-                        <p class="user-name">{{ post.User.firstname }}  {{ post.User.lastname }}</p>
+                        <a @click="getOneUserProfile(post)" class="user-name">{{ post.User.firstname }}  {{ post.User.lastname }}</a>
                         <p>Le {{ dateTime(post.createdAt) }} à {{ hour(post.createdAt) }}</p>
                     </div>
                     <div>
@@ -61,6 +61,17 @@ export default {
         },
         hour: function(value) {
             return moment(value).format('HH:mm')
+        },
+        getOneUserProfile: function(post) {
+           instance.get(`/user/${post.userId}`, {headers: {"Authorization": "Bearer " + user.token}})
+    
+            .then((res) => {
+                this.user = res.data
+                console.log(res.data)
+            })
+            .catch(() => {
+                this.error = "Un problème est survenu, veuillez réessayer"
+            }) 
         }
     }
 }
