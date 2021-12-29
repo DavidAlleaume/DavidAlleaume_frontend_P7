@@ -2,11 +2,12 @@
     <div>
        <div >
             <div :key="index" v-for="(post, index) in allPosts">
-                <div class="row post-infos">
-                    <p class="user-name col-6">{{ post.User.firstname }}  {{ post.User.lastname }}</p>
-                    <p class="col-6">Le {{ dateTime(post.createdAt) }} à {{ hour(post.createdAt) }}</p>
-                </div>
+                
                 <div class="card mb-5 post-card shadow-sm">
+                    <div class="card-header post-infos mb-3">
+                        <p class="user-name">{{ post.User.firstname }}  {{ post.User.lastname }}</p>
+                        <p>Le {{ dateTime(post.createdAt) }} à {{ hour(post.createdAt) }}</p>
+                    </div>
                     <div>
                         <img v-if="post.attachment" class="post-attachment" v-bind:src="post.attachment" alt="Image postée" width="200"/>
                     </div>

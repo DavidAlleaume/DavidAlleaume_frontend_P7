@@ -1,22 +1,26 @@
 .user-name {
     font-weight: bold;
     font-size: 15px;
+    margin-right: 30px;
 }
 
 .post-card {
     position: relative;
-    padding: 20px;
+    
     font-size: 20px;
 }
 .post-infos {
     background-color: #f5f5f5da;
+    display: flex;
+    align-items: baseline;
+    height: 35px;
 }
 
 .btn-suppr {
     position: absolute;
     display: flex;
     justify-content: center;
-    top: 10px;
+    bottom: 10px;
     right: 10px;
     width: 30px;
     height: 30px;
