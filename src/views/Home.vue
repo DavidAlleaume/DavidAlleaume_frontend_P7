@@ -26,7 +26,7 @@
                 <input v-model="password" class="form-row-input" type="password" placeholder="Mot de passe" />
             </div>
             <div class="form-row error-message">
-                {{ message }}
+                <p class="my-3 text-danger">{{ message }}</p>
             </div>
             <div class="form-row">
                 <button @click="login()" class="button" :class="{ 'button--disabled': !validatedFields }" v-if="mode == 'login'">
@@ -55,7 +55,10 @@ export default {
             lastname: "",
             email: "",
             password: "",
-            message:""  
+            message:"",
+            nameRegex: /^[a-z ,.'-]+$/i,
+            emailRegex: /^[a-z0-9._-]+@[a-z0-9.-]{2,}[.][a-z]{2,3}$/,
+            passwordRegex: /^((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})$/,
         }
     },
     computed: {
@@ -89,17 +92,32 @@ export default {
                 email: this.email,
                 password: this.password
             }
-            instance.post('/user/signup', newUser)
-            .then((res) => {
-                if(res.status === 201) {
-                    this.mode = "login"
-                    this.message = "Votre compte a bien été créé ! veuillez vous identifier..."
-                    
-                }  
-            })
-            .catch(() => {
-                this.message = "Un problème est survenu, veuillez réessayer"
-            })
+            let firstnameCheck = this.nameRegex.test(this.firstname)
+            let lastnameCheck = this.nameRegex.test(this.lastname)
+            let emailCheck = this.emailRegex.test(this.email)
+            let passwordCheck = this.passwordRegex.test(this.password)
+            if(firstnameCheck == false) {
+                this.message = 'Prénom invalide'
+            } else if (lastnameCheck == false){
+                this.message = 'Nom invalide'
+            } else if (emailCheck == false) {
+                this.message = 'Email invalide'
+            } else if (passwordCheck == false) {
+                this.message = 'Votre de passe doit contenir entre 6 et 20 caractères, minimum 1 majuscule, 1 minuscule et 1 chiffre'
+            } else {
+                instance.post('/user/signup', newUser)
+                .then((res) => {
+                    if(res.status === 201) {
+                        this.mode = "login"
+                        this.message = "Votre compte a bien été créé ! veuillez vous identifier..."
+                    }  
+                })
+                .catch((res) => {
+                    if(res.status == 409) {
+                        this.message = "Cette adresse mail est déjà utilisée !"
+                    }  
+                })
+            }
         },
         login: function() {
             let user = {

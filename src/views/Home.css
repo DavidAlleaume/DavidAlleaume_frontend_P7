@@ -76,8 +76,6 @@ header {
 .form-row-input::placeholder {
     color: #aaaaaa;
 }
-.error-message {
-    color: red;
-}
+
 
 
