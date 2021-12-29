@@ -3,11 +3,11 @@ header {
     height: 200px;
     width: 100%;
     margin-bottom: 100px;
-    border-bottom: 3px solid #fd2d01
+    border-bottom: 3px solid #fd2d01;
 }
 .logo-login {
    width: 400px;
-   margin-top:65px
+   margin-top:65px;
 }
 .login-form {
     max-width: 100%;
@@ -76,6 +76,8 @@ header {
 .form-row-input::placeholder {
     color: #aaaaaa;
 }
-
+.error-message {
+    margin: auto;
+}
 
 

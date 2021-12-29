@@ -5,41 +5,39 @@
     </header>
     
     <div class="card shadow login-form">
-            <h1 class="card-title" v-if="mode == 'login'">Connexion</h1>
-            <h1 class="card-title" v-else>Inscription</h1>
-            <p class="card-subtitle" v-if="mode == 'login'">
-                Vous n'avez pas encore de compte ?
-                <span class="card-action" @click="switchToCreateAccount()">Créer un compte</span>
-            </p>
-            <p class="card-subtitle" v-else>
-                Vous avez déjà un compte ?
-                <span class="card-action" @click="switchToLogin()">Se connecter</span>
-            </p>
-            <div class="form-row">
-                <input v-model="email" class="form-row-input" type="text" placeholder="Adresse mail" />
-            </div>
-            <div class="form-row" v-if="mode == 'create'">
-                <input v-model="firstname" class="form-row-input" type="text" placeholder="Prénom" />
-                <input v-model="lastname" class="form-row-input" type="text" placeholder="Nom" />
-            </div>
-            <div class="form-row">
-                <input v-model="password" class="form-row-input" type="password" placeholder="Mot de passe" />
-            </div>
-            <div class="form-row error-message">
-                <p class="my-3 text-danger">{{ message }}</p>
-            </div>
-            <div class="form-row">
-                <button @click="login()" class="button" :class="{ 'button--disabled': !validatedFields }" v-if="mode == 'login'">
-                    <span>Connexion</span>
-                </button>
-                <button @click="createAccount()" class="button" :class="{ 'button--disabled': !validatedFields }" v-else>
-                    <span>Créer mon compte</span>
-                </button>
-            </div>
+        <h1 class="card-title" v-if="mode == 'login'">Connexion</h1>
+        <h1 class="card-title" v-else>Inscription</h1>
+        <p class="card-subtitle" v-if="mode == 'login'">
+            Vous n'avez pas encore de compte ?
+            <span class="card-action" @click="switchToCreateAccount()">Créer un compte</span>
+        </p>
+        <p class="card-subtitle" v-else>
+            Vous avez déjà un compte ?
+            <span class="card-action" @click="switchToLogin()">Se connecter</span>
+        </p>
+        <div class="form-row">
+            <input v-model="email" class="form-row-input" type="text" placeholder="Adresse mail" />
         </div>
-</div>
-
-    
+        <div class="form-row" v-if="mode == 'create'">
+            <input v-model="firstname" class="form-row-input" type="text" placeholder="Prénom" />
+            <input v-model="lastname" class="form-row-input" type="text" placeholder="Nom" />
+        </div>
+        <div class="form-row">
+            <input v-model="password" class="form-row-input" type="password" placeholder="Mot de passe" />
+        </div>
+        <div class="form-row error-message">
+            <p class="my-3 text-danger">{{ message }}</p>
+        </div>
+        <div class="form-row">
+            <button @click="login()" class="button" :class="{ 'button--disabled': !validatedFields }" v-if="mode == 'login'">
+                <span>Connexion</span>
+            </button>
+            <button @click="createAccount()" class="button" :class="{ 'button--disabled': !validatedFields }" v-else>
+                <span>Créer mon compte</span>
+            </button>
+        </div>
+    </div>
+</div>   
 </template>
 
 <script>
@@ -48,6 +46,7 @@ import instance from '../axios'
 
 export default {
     name: "Login",
+
     data: function() {
         return {
             mode: "login",
@@ -58,9 +57,10 @@ export default {
             message:"",
             nameRegex: /^[a-z ,.'-]+$/i,
             emailRegex: /^[a-z0-9._-]+@[a-z0-9.-]{2,}[.][a-z]{2,3}$/,
-            passwordRegex: /^((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})$/,
+            passwordRegex: /^((?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})$/
         }
     },
+
     computed: {
         validatedFields: function () {
             if (this.mode == "create") {
@@ -77,14 +77,17 @@ export default {
                 }
             }
         }
-    },   
+    },  
+
     methods: {
         switchToCreateAccount: function () {
             this.mode = "create"
         },
+
         switchToLogin: function () {
             this.mode = "login"
         },
+
         createAccount: function() {
             let newUser = {
                 firstname: this.firstname,
@@ -113,12 +116,13 @@ export default {
                     }  
                 })
                 .catch((res) => {
-                    if(res.status == 409) {
+                    if(res.response.status == 409) {
                         this.message = "Cette adresse mail est déjà utilisée !"
                     }  
                 })
             }
         },
+
         login: function() {
             let user = {
                 email: this.email,
@@ -133,8 +137,11 @@ export default {
                 }
             })
             .catch((res) => {
-                localStorage.clear()
-                this.message = res.message
+                if(res.response.status == 404) {
+                    this.message = "Cet utilisateur n'existe pas !"
+                } else if(res.response.status == 401){
+                    this.message = "Adresse mail invalide !"
+                }
             })
         }
     }

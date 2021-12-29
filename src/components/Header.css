@@ -1,6 +1,7 @@
 .btn-nav {
     margin: 5px;
     background-color: #2e405e;
+
 }
 .btn-nav a {
     color: white;
@@ -8,6 +9,12 @@
 }
 .btn-nav a:hover {
     color: #ff6242;
+}
+.forum-link {
+    font-size: 16px;
+}
+.icon-custom {
+    font-size: 20px;
 }
 .navbar-custom {
     background-color: #091f43;
@@ -19,7 +26,6 @@
 li {
     margin-left: 10px;
 }
-
 
 @media screen and (max-width: 500px) {
     .logo {

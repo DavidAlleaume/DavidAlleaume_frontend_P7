@@ -70,11 +70,12 @@ export default {
                 console.log(res.data)
             })
             .catch(() => {
-                this.error = "Un problème est survenu, veuillez réessayer"
+                alert("Un problème est survenu, veuillez réessayer")
             }) 
         }
     }
 }
+
 </script>
 
 <style scoped src="./Posts.css">
