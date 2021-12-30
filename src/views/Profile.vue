@@ -6,7 +6,8 @@
         <p><strong>Prénom: </strong>{{ user.firstname }}</p>
         <p><strong>Nom: </strong>{{ user.lastname }}</p>
         <p><strong>Email: </strong>{{ user.email }}</p>
-        <p v-if="user.isAdmin === true"><strong>Rôle:</strong> Admin</p>
+        <p v-if="user.isAdmin === true"><strong>Rôle:</strong> Administrateur</p>
+        <p v-else><strong>Rôle:</strong> Utilisateur</p>
     </div>
     <div v-if="userId == user.id">
         <button @click="deleteProfile()" type="button" class="btn btn-danger mt-5">
@@ -26,7 +27,7 @@ export default {
     data() {
         return {
             user: {},
-            userId: user.userId
+            userId: user.id
         }
     },
 
