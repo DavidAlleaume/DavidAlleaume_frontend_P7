@@ -25,13 +25,8 @@ export default {
     name: "Profile",
     data() {
         return {
-            user: {}
-        }
-    },
-
-    props: {
-        userId: {
-            type: String
+            user: {},
+            userId: user.userId
         }
     },
 

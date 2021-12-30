@@ -77,12 +77,6 @@ export default {
         }
     },
 
-    props: {
-        userId: {
-        type: String
-        }
-    },
-
     methods: {
 
         selectFile(event) {
