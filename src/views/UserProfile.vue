@@ -1,7 +1,10 @@
 <template>
     <header-top></header-top>
 
-    <h1 @click="displayThing()">Voici le profil de {{ user.firstname }}</h1>
+    <h1>Profil de:</h1>
+    <h2>{{ user.firstname }} {{ user.lastname }}</h2>
+    <p>Email: {{user.email}}</p>
+    
     
 </template>
 
@@ -16,7 +19,7 @@ export default {
 
     data() {
         return {
-            user: {}
+            user: {},
         }
     },
 
@@ -29,7 +32,7 @@ export default {
         id: String
     },
 
-    created() {
+    mounted() {
         console.log(this.$route.params.id)
         const id = this.$route.params.id
         this.getProfile(id)
@@ -40,13 +43,14 @@ export default {
                 headers: { Authorization: "Bearer " + user.token }
             })
             .then((res) => {
-                this.user = res.data
                 console.log(res.data)
+                this.user = res.data
+                console.log(this.user)
             })
             .catch(() => {
                 alert("Un problème est survenu, veuillez réessayer")
             })
-        },
+        }
     }
     
 }
