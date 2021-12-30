@@ -80,6 +80,7 @@ export default {
     methods: {
 
         selectFile(event) {
+            console.log(this.$refs.file.files)
             this.file = this.$refs.file.files[0]
             let input = event.target
             if (input.files) {
@@ -93,9 +94,8 @@ export default {
         },
 
         cancelAttachment: function () {
-            this.file = ""
-            this.preview = ""
-            this.displayPreview = false
+           console.log(this.$refs.file.files)
+           this.displayPreview = false
         },
 
         createPost: function () {

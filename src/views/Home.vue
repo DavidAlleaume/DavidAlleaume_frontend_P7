@@ -112,7 +112,7 @@ export default {
                 .then((res) => {
                     if(res.status === 201) {
                         this.mode = "login"
-                        this.message = "Votre compte a bien été créé ! veuillez vous identifier..."
+                        this.message = "Votre compte a bien été créé ! veuillez vous connecter..."
                     }  
                 })
                 .catch((res) => {

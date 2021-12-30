@@ -35,9 +35,11 @@ export default {
         return {
             allPosts: [],
             userId: user.userId,
-            isAdmin: user.isAdmin
+            isAdmin: user.isAdmin,
+            user: {},
         }
     },
+
     mounted() {
         instance.get('/post/', {headers: {"Authorization": "Bearer " + user.token}})
         .then(res => {
@@ -63,11 +65,13 @@ export default {
             return moment(value).format('HH:mm')
         },
         getOneUserProfile: function(post) {
-           instance.get(`/user/${post.userId}`, {headers: {"Authorization": "Bearer " + user.token}})
+            let id = post.userId
+            instance.get(`/user/${id}`, {headers: {"Authorization": "Bearer " + user.token}})
     
             .then((res) => {
-                this.user = res.data
+                console.log('test')
                 console.log(res.data)
+                this.$router.push({ path: `/userprofile/${res.data.userId}`})
             })
             .catch(() => {
                 alert("Un problème est survenu, veuillez réessayer")
