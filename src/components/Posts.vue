@@ -5,7 +5,14 @@
                 
                 <div class="card mb-5 post-card shadow-sm">
                     <div class="card-header post-infos mb-3">
-                        <a @click="getOneUserProfile(post)" class="user-name">{{ post.User.firstname }}  {{ post.User.lastname }}</a>
+                        <button 
+                            v-show="post.userId !== userId"
+                            type="button" 
+                            @click="getOneUserProfile(post)" 
+                            class="btn user-name">
+                            {{ post.User.firstname }}  {{ post.User.lastname }}
+                        </button>
+                        <p v-show="post.userId == userId" class="connected-user-name">{{ post.User.firstname }}  {{ post.User.lastname }}</p>
                         <p>Le {{ dateTime(post.createdAt) }} à {{ hour(post.createdAt) }}</p>
                     </div>
                     <div>
@@ -51,7 +58,7 @@ export default {
     },
     methods: {
         deletePost: function(post) {
-            if(confirm('Voulez-vous vraiment supprimer ce message?')) {
+            if(confirm('Voulez-vous vraiment supprimer ce post?')) {
                 instance.delete(`/post/${post.id}`, {headers: {"Authorization": "Bearer " + user.token}})
                 .then(() => {
                     this.$router.go()

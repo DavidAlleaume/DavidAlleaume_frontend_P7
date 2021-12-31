@@ -1,7 +1,19 @@
 .user-name {
+   
+    font-size: 15px;
+    margin-right: 30px;
+    background: #2e405e;
+    color: #ffffff;
+}
+.user-name:hover {
+    background: #2e405e;
+    color: #ff6242;
+}
+.connected-user-name {
     font-weight: bold;
     font-size: 15px;
     margin-right: 30px;
+    margin-top: 6px;
 }
 .post-card {
     position: relative;
@@ -12,7 +24,7 @@
     background-color: #f5f5f5da;
     display: flex;
     align-items: baseline;
-    height: 35px;
+    height: 54px;
 }
 .btn-suppr {
     position: absolute;
