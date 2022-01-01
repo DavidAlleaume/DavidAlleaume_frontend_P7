@@ -1,14 +1,14 @@
 <template>
     <header-top></header-top>
     <div class="container col-sm-10 col-lg-8">
-        <h1 class="mb-5">Bienvenue sur le forum !</h1>
+        <h1 class="mb-5">Partagez avec vos collaborateurs !</h1>
         <div class="form form-floating post-form">
             <textarea
                 class="input-custom form-control mb-2"
                 v-model="content"
                 aria-label="Contenu du message">
             </textarea>
-            <label class="input-label" for="floatingTextarea">Exprimez-vous...</label>
+            <label class="input-label" for="floatingTextarea">Rédigez votre message ici...</label>
             <div id="preview" v-if="preview && displayPreview == true">
                 <img class="preview" :src="preview" :alt="preview" />
                 <button

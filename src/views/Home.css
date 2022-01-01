@@ -6,8 +6,12 @@ header {
     border-bottom: 3px solid #fd2d01;
 }
 .logo-login {
-   width: 400px;
-   margin-top:65px;
+   width: 500px;
+   margin-top:60px;
+}
+.welcome {
+    font-weight: 500;
+    font-weight: bold;
 }
 .login-form {
     max-width: 100%;
@@ -78,6 +82,34 @@ header {
 }
 .error-message {
     margin: auto;
+}
+
+
+@media screen and (max-width: 400px) {
+    header {
+        height: 150px;
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    .logo-login {
+        width: 275px;
+        margin-top:55px;
+    }
+    .welcome {
+        padding: 10px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 700px){
+    header {
+        height: 150px;
+        width: 100%;
+        margin-bottom: 50px;
+    }
+    .logo-login {
+        width: 300px;
+        margin-top:50px;
+     }
 }
 
 

@@ -29,7 +29,7 @@ export default {
   color: #091f43;
 }
 body {
-  min-width: 300px;
+  min-width: 310px;
   min-height: 100vh;
 }
 </style>

@@ -1,19 +1,21 @@
 <template>
     <header-top></header-top>
-    <h1>Mon profil</h1>
+    <div class="container">
+        <h1>Mon profil</h1>
 
-    <div class="card shadow mt-5">
-        <p><strong>Prénom: </strong>{{ user.firstname }}</p>
-        <p><strong>Nom: </strong>{{ user.lastname }}</p>
-        <p><strong>Email: </strong>{{ user.email }}</p>
-        <p>Inscrit sur le forum depuis le {{ dateTime(user.createdAt) }}</p>
-        <p v-if="user.isAdmin"><strong>Rôle:</strong>Administrateur</p>
-        
-    </div>
-    <div >
-        <button @click="deleteProfile()" type="button" class="btn btn-danger mt-5">
-            Supprimer votre compte
-        </button>
+        <div class="card shadow mt-5">
+            <p><strong>Prénom: </strong>{{ user.firstname }}</p>
+            <p><strong>Nom: </strong>{{ user.lastname }}</p>
+            <p><strong>Email: </strong>{{ user.email }}</p>
+            <p>Inscrit sur le forum depuis le {{ dateTime(user.createdAt) }}</p>
+            <p v-if="user.isAdmin"><strong>Rôle:</strong>Administrateur</p>
+            
+        </div>
+        <div >
+            <button @click="deleteProfile()" type="button" class="btn btn-danger mt-5">
+                Supprimer votre compte
+            </button>
+        </div>
     </div>
 </template>
 

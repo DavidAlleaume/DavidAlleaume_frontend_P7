@@ -30,18 +30,19 @@
     position: absolute;
     display: flex;
     justify-content: center;
-    bottom: 10px;
+    top: 12px;
     right: 10px;
     width: 30px;
     height: 30px;
     color: white;
     background-color: #fd2d01;
+    
 }
 .btn-suppr:hover {
     background-color: #ff8181;
 }
 .post-content {
-    font-size: 15px;   
+    font-size: 15px;
 }
 p {
     font-size: 12px;

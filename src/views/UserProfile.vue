@@ -1,18 +1,17 @@
 <template>
     <header-top></header-top>
-    <div>
-        <h1>{{ postUser.firstname }} {{ postUser.lastname }}</h1>
+    <div class="container">
+        <div>
+            <h1>{{ postUser.firstname }} {{ postUser.lastname }}</h1>
 
-        <div class="card shadow mt-5">
-            <p><strong>Email: </strong>{{ postUser.email }}</p>
-            <p>Inscrit sur le forum depuis le {{ dateTime(postUser.createdAt) }}</p>
-            <p v-if="postUser.isAdmin === true"><strong>Rôle:</strong> Administrateur</p>
+            <div class="card shadow mt-5">
+                <p><strong>Email: </strong>{{ postUser.email }}</p>
+                <p>Inscrit sur le forum depuis le {{ dateTime(postUser.createdAt) }}</p>
+                <p v-if="postUser.isAdmin === true"><strong>Rôle:</strong> Administrateur</p>
+            </div>
+            <button v-if="isAdmin === true" @click="deleteProfile()" type="button" class="btn btn-danger mt-5">Supprimer cet utilisateur</button>
         </div>
-        <button v-if="isAdmin === true" @click="deleteProfile()" type="button" class="btn btn-danger mt-5">Supprimer cet utilisateur</button>
     </div>
-    
-    
-    
 </template>
 
 <script>

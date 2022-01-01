@@ -1,40 +1,45 @@
 <template>
-<div >
+<div>
     <header>
         <img class="logo-login" src="../assets/icon-left-font-monochrome-white-resized.png" alt="Logo Groupomania">
     </header>
-    
-    <div class="card shadow login-form">
-        <h1 class="card-title" v-if="mode == 'login'">Connexion</h1>
-        <h1 class="card-title" v-else>Inscription</h1>
-        <p class="card-subtitle" v-if="mode == 'login'">
-            Vous n'avez pas encore de compte ?
-            <span class="card-action" @click="switchToCreateAccount()">Créer un compte</span>
-        </p>
-        <p class="card-subtitle" v-else>
-            Vous avez déjà un compte ?
-            <span class="card-action" @click="switchToLogin()">Se connecter</span>
-        </p>
-        <div class="form-row">
-            <input v-model="email" class="form-row-input" type="text" placeholder="Adresse mail" />
+
+    <div class="container">
+        <div class="jumbotron mb-5">
+            <p class="display-6 welcome">Bienvenue sur le Forum!</p>
         </div>
-        <div class="form-row" v-if="mode == 'create'">
-            <input v-model="firstname" class="form-row-input" type="text" placeholder="Prénom" />
-            <input v-model="lastname" class="form-row-input" type="text" placeholder="Nom" />
-        </div>
-        <div class="form-row">
-            <input v-model="password" class="form-row-input" type="password" placeholder="Mot de passe" />
-        </div>
-        <div class="form-row error-message">
-            <p class="my-3 text-danger">{{ message }}</p>
-        </div>
-        <div class="form-row">
-            <button @click="login()" class="button" :class="{ 'button--disabled': !validatedFields }" v-if="mode == 'login'">
-                <span>Connexion</span>
-            </button>
-            <button @click="createAccount()" class="button" :class="{ 'button--disabled': !validatedFields }" v-else>
-                <span>Créer mon compte</span>
-            </button>
+        <div class="card shadow login-form mb-5">
+            <h1 class="card-title" v-if="mode == 'login'">Connexion</h1>
+            <h1 class="card-title" v-else>Inscription</h1>
+            <p class="card-subtitle" v-if="mode == 'login'">
+                Vous n'avez pas encore de compte ?
+                <span class="card-action" @click="switchToCreateAccount()">Créer un compte</span>
+            </p>
+            <p class="card-subtitle" v-else>
+                Vous avez déjà un compte ?
+                <span class="card-action" @click="switchToLogin()">Se connecter</span>
+            </p>
+            <div class="form-row">
+                <input v-model="email" class="form-row-input" type="text" placeholder="Adresse mail" />
+            </div>
+            <div class="form-row" v-if="mode == 'create'">
+                <input v-model="firstname" class="form-row-input" type="text" placeholder="Prénom" />
+                <input v-model="lastname" class="form-row-input" type="text" placeholder="Nom" />
+            </div>
+            <div class="form-row">
+                <input v-model="password" class="form-row-input" type="password" placeholder="Mot de passe" />
+            </div>
+            <div class="form-row error-message">
+                <p class="my-3 text-danger">{{ message }}</p>
+            </div>
+            <div class="form-row">
+                <button @click="login()" class="button" :class="{ 'button--disabled': !validatedFields }" v-if="mode == 'login'">
+                    <span>Connexion</span>
+                </button>
+                <button @click="createAccount()" class="button" :class="{ 'button--disabled': !validatedFields }" v-else>
+                    <span>Créer mon compte</span>
+                </button>
+            </div>
         </div>
     </div>
 </div>   
