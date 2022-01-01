@@ -9,7 +9,7 @@ h1 {
 }
 .btn-custom-send {
     background-color: #091f43;
-    width: 200px;
+    width: 250px;
 }
 .btn-custom-send:hover {
     background-color: #2e405e;
@@ -23,7 +23,7 @@ input[type="file"] {
 .file-label {
     color: white;
     height: 50px;
-    width: 200px;
+    width: 250px;
     background-color: #fd2d01;
     display: flex;
     justify-content: space-around;
@@ -51,5 +51,8 @@ input[type="file"] {
 @media screen and (max-width: 400px) {
     h1 {
         font-size: 20px;
+    }
+    .attachment-type {
+        font-size: 12px;
     }
 }

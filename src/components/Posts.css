@@ -1,11 +1,12 @@
 .user-name {
+    
     font-size: 15px;
     margin-right: 30px;
-    background: #2e405e;
-    color: #ffffff;
+    background-color: #f5f5f5da;
+    border: 1px solid #091f43;
+    color: #091f43;
 }
 .user-name:hover {
-    background: #2e405e;
     color: #ff6242;
 }
 .connected-user-name {

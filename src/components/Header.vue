@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <nav class="navbar fixed-top navbar-custom navbar-expand-md navbar-dark p-3">
+        <nav class="navbar fixed-top navbar-custom navbar-expand-md navbar-dark">
             <img class="logo" src="../assets/icon-left-font-monochrome-white-resized.png" alt="Logo Groupomania" width=300>
             <button
                 class="navbar-toggler"
@@ -15,19 +15,13 @@
             <div class="collapse navbar-collapse text-left" id="toggleMobileMenu">
                 <ul class="navbar-nav ms-auto">
                     <li>
-                        <button class="btn btn-nav btn-sm" type="button">
-                            <router-link class-active="active" class="forum-link" to="/forum">Forum</router-link>
-                        </button>
+                        <router-link class-active="active" class="forum-link link" to="/forum">Forum</router-link>                      
                     </li>
                     <li>
-                        <button class="btn btn-nav btn-sm" type="button">
-                            <router-link to="/profile"><fa icon="user-cog" class="icon-custom" /></router-link>
-                        </button>
+                        <router-link to="/profile"><fa icon="user-cog" class="icon-custom link" /></router-link>
                     </li>
                     <li>
-                        <button @click="logout()" class="btn btn-nav btn-sm" type="button">
-                            <router-link to="/profile"><fa icon="sign-out-alt" class="icon-custom" /></router-link>   
-                        </button>
+                        <router-link @click="logout()" to="/profile"><fa icon="sign-out-alt" class="icon-custom link" /></router-link>      
                     </li>
                 </ul>
             </div>
@@ -41,12 +35,16 @@ import user from '../user_auth'
 
 export default {
     name: 'Header',
+
     component: {},
+
     methods: {
+
     logout: function () {
       localStorage.clear(user)
       this.$router.push("/");
     }
+
   }
 }
 

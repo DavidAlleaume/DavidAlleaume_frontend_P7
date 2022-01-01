@@ -1,17 +1,12 @@
-.btn-nav {
-    margin: 5px;
-    background-color: #2e405e;
-
-}
-.btn-nav a {
-    color: white;
-    text-decoration: none;
-}
-.btn-nav a:hover {
-    color: #ff6242;
-}
 .forum-link {
-    font-size: 16px;
+    text-decoration: none;
+    font-size: 25px;
+}
+.link {
+    color: white;
+}
+.link:hover {
+    color: #ff6242;
 }
 .icon-custom {
     font-size: 20px;
@@ -19,21 +14,32 @@
 .navbar-custom {
     background-color: #091f43;
     border-bottom: 3px solid #fd2d01;
+    padding: 20px;
 }
 .navbar-toggler-icon {
     color: white;
 }
 li {
-    margin-left: 10px;
+    margin-left: 25px;
+}
+ul {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+.logo {
+    margin-left: 20px;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (min-width: 400px) and (max-width: 660px) {
     .logo {
-        width:250px
+        width:250px;
+        margin-left: 10px;
     }
 }
 @media screen and (max-width: 400px) {
     .logo {
         width:200px;
+        margin-left: 0px;
     }
 }

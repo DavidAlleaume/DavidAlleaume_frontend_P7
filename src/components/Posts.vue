@@ -9,7 +9,7 @@
                             v-show="post.userId !== userId"
                             type="button" 
                             @click="getOneUserProfile(post)" 
-                            class="btn user-name">
+                            class="btn btn-outline user-name">
                             {{ post.User.firstname }}  {{ post.User.lastname }}
                         </button>
                         <p v-show="post.userId == userId" class="connected-user-name">{{ post.User.firstname }}  {{ post.User.lastname }}</p>

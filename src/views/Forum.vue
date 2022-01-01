@@ -1,10 +1,10 @@
 <template>
     <header-top></header-top>
     <div class="container col-sm-10 col-lg-8">
-        <h1 class="mb-5">Partagez avec vos collaborateurs !</h1>
+        <h1 class="mb-5">Que souhaitez-vous partager ?</h1>
         <div class="form form-floating post-form">
             <textarea
-                class="input-custom form-control mb-2"
+                class="input-custom form-control mb-4"
                 v-model="content"
                 aria-label="Contenu du message">
             </textarea>
@@ -36,6 +36,7 @@
                 <label class="file-label" for="file">
                     <fa class="file-upload-icon" icon="file-upload" />Ajouter une image
                 </label>
+                <p class="attachment-type">Formats requis: .jpg .gif .png </p>
             </div>
             <button
                 @click="createPost()"
