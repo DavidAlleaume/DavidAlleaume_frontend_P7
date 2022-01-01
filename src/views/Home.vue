@@ -1,7 +1,7 @@
 <template>
 <div>
     <header>
-        <img class="logo-login" src="../assets/icon-left-font-monochrome-white-resized.png" alt="Logo Groupomania">
+        <img class="logo-home" src="../assets/icon-left-font-monochrome-white-resized.png" alt="Logo Groupomania">
     </header>
 
     <div class="container">

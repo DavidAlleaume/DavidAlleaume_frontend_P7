@@ -5,7 +5,7 @@ header {
     margin-bottom: 100px;
     border-bottom: 3px solid #fd2d01;
 }
-.logo-login {
+.logo-home {
    width: 500px;
    margin-top:60px;
 }
@@ -22,6 +22,7 @@ header {
     margin: auto;
 }
 .card-title {
+    color: #fd2d01;
     text-align: center;
     font-weight: 800;
 }
@@ -91,7 +92,7 @@ header {
         width: 100%;
         margin-bottom: 50px;
     }
-    .logo-login {
+    .logo-home {
         width: 275px;
         margin-top:55px;
     }
@@ -106,7 +107,7 @@ header {
         width: 100%;
         margin-bottom: 50px;
     }
-    .logo-login {
+    .logo-home {
         width: 300px;
         margin-top:50px;
      }
