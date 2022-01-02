@@ -40,12 +40,11 @@ export default {
 
     methods: {
 
-    logout: function () {
-      localStorage.clear(user)
-      this.$router.push("/");
+        logout: function () {
+            localStorage.clear(user)
+            this.$router.go()
+        }
     }
-
-  }
 }
 
 </script>

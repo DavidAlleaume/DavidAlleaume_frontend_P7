@@ -8,8 +8,15 @@ if (!user) {
         token: '',
     }
 } else {
-    user = JSON.parse(user);
-    instance.defaults.headers.common['Authorization'] = user.token;
+    try {
+        user = JSON.parse(user)
+        instance.defaults.headers.common['Authorization'] = user.token
+    } catch (ex) {
+        user = {
+            userId: -1,
+            token: '',
+        }
+    }
 }
 
 export default user

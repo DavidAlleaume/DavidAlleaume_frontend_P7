@@ -48,6 +48,7 @@
 <script>
 
 import instance from '../axios'
+import user from '../user_auth'
 
 export default {
     name: "Login",
@@ -82,7 +83,11 @@ export default {
                 }
             }
         }
-    },  
+    },
+    
+    created() {
+        this.userIsLogged()
+    },
 
     methods: {
         switchToCreateAccount: function () {
@@ -128,6 +133,12 @@ export default {
             }
         },
 
+        userIsLogged: function () {
+            if(user.token !== "") 
+                this.$router.push('/forum')
+    
+        },
+
         login: function() {
             let user = {
                 email: this.email,
@@ -137,8 +148,7 @@ export default {
             .then((res) => {
                 if (res.status === 200) {
                     localStorage.setItem("user", JSON.stringify(res.data))
-                    this.$router.push('/forum')
-                    .then(() => this.$router.go())
+                    this.$router.go()
                 }
             })
             .catch((res) => {
