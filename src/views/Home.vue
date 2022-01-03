@@ -67,6 +67,7 @@ export default {
         }
     },
 
+    // Validation des champs permettant l'affichage et l'accès au bouton d'envoi des données
     computed: {
         validatedFields: function () {
             if (this.mode == "create") {
@@ -98,6 +99,7 @@ export default {
             this.mode = "login"
         },
 
+        // création de compte
         createAccount: function() {
             let newUser = {
                 firstname: this.firstname,
@@ -133,12 +135,7 @@ export default {
             }
         },
 
-        userIsLogged: function () {
-            if(user.token !== "") 
-                this.$router.push('/forum')
-    
-        },
-
+        // Connexion
         login: function() {
             let user = {
                 email: this.email,
@@ -158,9 +155,14 @@ export default {
                     this.message = "Adresse mail invalide !"
                 }
             })
-        }
-    }
+        },
 
+        // Vérification de l'authentification avant l'envoi vers le forum
+        userIsLogged: function () {
+            if(user.token !== "") 
+                this.$router.push('/forum')
+        },
+    }
 }
 
 </script>

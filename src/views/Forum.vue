@@ -14,7 +14,7 @@
                 <img class="preview" :src="preview" :alt="preview" />
                 <button
                     type="button"
-                    @click="cancelAttachment()"
+                    @click="cancelPreview()"
                     class="btn-close"
                     data-toggle="tooltip"
                     data-placement="right"
@@ -33,7 +33,7 @@
                     ref="file"
                     name="file"
                     enctype="multipart/form-data"
-                    @change="selectFile" />
+                    @input="selectFile" />
                 <label class="file-label" for="file">
                     <fa class="file-upload-icon" icon="file-upload" />Ajouter une image
                 </label>
@@ -75,17 +75,19 @@ export default {
         file: "",
         preview: "",
         message: "",
-        displayPreview: ""
+        displayPreview: "",
+        Filelist: {}
         }
     },
 
     created() {
-        window.scrollTo(0, 0)
+        window.scrollTo(0, 0) // Scroll automatique en haut de la page à la création pour s'assurer de la visibilité du contenu
     },
 
     methods: {
 
-        selectFile(event) {
+        // Sélection d'une image à ajouter au post
+       selectFile(event) {
             console.log(this.$refs.file.files)
             this.file = this.$refs.file.files[0]
             let input = event.target
@@ -99,11 +101,14 @@ export default {
             }
         },
 
-        cancelAttachment: function () {
+        // Suppression de la prévisualisation de l'image
+        cancelPreview: function () {
            console.log(this.$refs.file.files)
            this.displayPreview = false
+           this.preview = ""
         },
 
+        // Création d'un post
         createPost: function () {
             if (!this.content) {
                 this.message = `Vous devez rédiger un message !`

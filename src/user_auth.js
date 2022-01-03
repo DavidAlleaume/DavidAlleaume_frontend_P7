@@ -1,5 +1,6 @@
 import instance from './axios'
 
+// Création d'une variable user qui servira pour l'authentification  
 let user = localStorage.getItem('user')
 
 if (!user) {

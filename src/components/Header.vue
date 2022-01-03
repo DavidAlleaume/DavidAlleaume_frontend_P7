@@ -40,6 +40,7 @@ export default {
 
     methods: {
 
+        // Au clic sur Logout suppression du user dans le localstorage et rafraichissement de la page pour renvoi vers le login
         logout: function () {
             localStorage.clear(user)
             this.$router.go()

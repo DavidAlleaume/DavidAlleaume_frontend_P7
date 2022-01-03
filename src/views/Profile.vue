@@ -27,7 +27,9 @@ import user from "../user_auth"
 import moment from 'moment'
 
 export default {
+
     name: "Profile",
+
     data() {
         return {
             user: {},
@@ -38,12 +40,15 @@ export default {
         "header-top": Header
     },
 
+    // Récupération des infos de l'utilisateur et positionnement du scroll en haut de page
     created() {
         window.scrollTo(0, 0)
         this.getMyProfile()
     },
 
     methods: {
+
+        // Récupération des infos de l'utilisateur
         getMyProfile: function () {
             instance.get(`/user/${user.userId}`, {
                 headers: { Authorization: "Bearer " + user.token }
@@ -57,10 +62,12 @@ export default {
             })
         },
 
-         dateTime: function(value) {
+        // formatage de la date
+        dateTime: function(value) {
             return moment(value).format('DD.MM.YY')
         },
 
+        // Suppression d'un utilisateur
         deleteProfile: function () {
             if (confirm("Vous êtes sur le point de supprimer ce compte et tous les posts qui y sont associés! Cette action est irréversible.")) {
                 instance.delete(`/user/${user.userId}`, {

@@ -33,8 +33,7 @@ export default {
     },
 
     components: {
-        "header-top": Header
-        
+        "header-top": Header  
     },
 
     props: {
@@ -42,13 +41,17 @@ export default {
     },
 
     mounted() {
+
+        // Récupération des infos de l'utilisteur avec le bon id
         window.scrollTo(0, 0)
-        console.log(this.$route.params.id)
+        //console.log(this.$route.params.id)
         const id = this.$route.params.id
         this.getProfile(id)
     },
 
     methods: {
+
+        // Récupération des infos de l'utilisateur
         getProfile: function (id) {
             instance.get(`/user/${id}`, {
                 headers: { Authorization: "Bearer " + user.token }
@@ -63,10 +66,13 @@ export default {
             })
         },
 
+        // Formatage de la date
         dateTime: function(value) {
             return moment(value).format('DD.MM.YY')
         },
 
+
+        // Suppression d'un utilisateur
         deleteProfile: function () {
             if (confirm(`Vous êtes sur le point de supprimer le compte de ${ this.postUser.firstname } ${ this.postUser.lastname } et tous les posts qui y sont associés! Attention, cette action est irréversible.`)) {
                 instance.delete(`/user/${this.postUser.userId}`, {

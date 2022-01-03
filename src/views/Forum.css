@@ -9,7 +9,7 @@ h1 {
     color:#d1515a;
 }
 .btn-custom-send {
-    background-color: #091f43;
+    background-color: #fd2d01;
     width: 250px;
 }
 .btn-custom-send:hover {
@@ -25,7 +25,7 @@ input[type="file"] {
     color: white;
     height: 50px;
     width: 250px;
-    background-color: #fd2d01;
+    background-color: #2e405e;
     display: flex;
     justify-content: space-around;
     align-items: center;

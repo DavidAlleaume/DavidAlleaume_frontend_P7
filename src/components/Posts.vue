@@ -47,6 +47,7 @@ export default {
         }
     },
 
+    // Récupération de tous les posts
     mounted() {
         instance.get('/post/', {headers: {"Authorization": "Bearer " + user.token}})
         .then(res => {
@@ -56,7 +57,10 @@ export default {
             }
         })
     },
+
     methods: {
+
+        // Suppression d'un post
         deletePost: function(post) {
             if(confirm('Voulez-vous vraiment supprimer ce post?')) {
                 instance.delete(`/post/${post.id}`, {headers: {"Authorization": "Bearer " + user.token}})
@@ -65,19 +69,26 @@ export default {
                 })
             }
         },
+
+        // Formatage de la date
         dateTime: function(value) {
             return moment(value).format('DD.MM.YY')
         },
+
+        // Formatage de l'heure
         hour: function(value) {
             return moment(value).format('HH:mm')
         },
+
+        // Récupération des infos de l'utilisteur qui a créé le post
         getOneUserProfile: function(post) {
             let id = post.userId
             instance.get(`/user/${id}`, {headers: {"Authorization": "Bearer " + user.token}})
     
             .then((res) => {
-                console.log('test')
+                //console.log('test')
                 console.log(res.data)
+                // Renvoi vers le profil de l'utilisateur qui a créé le post
                 this.$router.push({ path: `/userprofile/${res.data.userId}`})
             })
             .catch(() => {
