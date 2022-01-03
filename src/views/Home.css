@@ -12,9 +12,10 @@ header {
 .welcome {
     font-weight: 500;
     font-weight: bold;
+    margin-bottom: 50px
 }
 .login-form {
-    max-width: 100%;
+    max-width: 95%;
     width: 540px;
     background: linear-gradient(62deg, #ffffff 0%, #eeecec 100%);
     border-radius: 16px;
@@ -88,16 +89,21 @@ header {
 
 @media screen and (max-width: 400px) {
     header {
-        height: 150px;
+        height: 130px;
         width: 100%;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
     }
     .logo-home {
         width: 275px;
-        margin-top:55px;
+        margin-top:45px;
     }
     .welcome {
         padding: 10px;
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+    .form-row {
+        margin: 8px
     }
 }
 

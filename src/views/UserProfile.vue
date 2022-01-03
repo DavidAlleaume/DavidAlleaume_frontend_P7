@@ -42,10 +42,7 @@ export default {
     },
 
     mounted() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        })
+        window.scrollTo(0, 0)
         console.log(this.$route.params.id)
         const id = this.$route.params.id
         this.getProfile(id)

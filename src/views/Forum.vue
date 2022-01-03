@@ -2,9 +2,10 @@
     <header-top></header-top>
     <div class="container col-sm-10 col-lg-8">
         <h1 class="mb-5">Que souhaitez-vous partager ?</h1>
-        <div class="form form-floating post-form">
+        <div class="form-floating post-form">
             <textarea
                 class="input-custom form-control mb-4"
+                id="floatingTextarea"
                 v-model="content"
                 aria-label="Contenu du message">
             </textarea>
@@ -76,6 +77,10 @@ export default {
         message: "",
         displayPreview: ""
         }
+    },
+
+    created() {
+        window.scrollTo(0, 0)
     },
 
     methods: {

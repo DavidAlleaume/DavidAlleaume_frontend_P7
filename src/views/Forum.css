@@ -3,9 +3,10 @@ h1 {
 }  
 .input-custom {
     border: solid 1px #fd2d01;
+    height: 100px!important;
 }
 .input-label {
-    color:#d1515a ;
+    color:#d1515a;
 }
 .btn-custom-send {
     background-color: #091f43;
@@ -45,7 +46,6 @@ input[type="file"] {
 }
 .btn-close {
     position: absolute;
-    top: 75px;
 }
 
 @media screen and (max-width: 400px) {

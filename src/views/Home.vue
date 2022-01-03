@@ -5,17 +5,17 @@
     </header>
 
     <div class="container">
-        <div class="jumbotron mb-5">
+        
             <p class="display-6 welcome">Bienvenue sur le Forum!</p>
-        </div>
+        
         <div class="card shadow login-form mb-5">
             <h1 class="card-title" v-if="mode == 'login'">Connexion</h1>
             <h1 class="card-title" v-else>Inscription</h1>
-            <p class="card-subtitle" v-if="mode == 'login'">
+            <p class="card-subtitle mb-3" v-if="mode == 'login'">
                 Vous n'avez pas encore de compte ?
                 <span class="card-action" @click="switchToCreateAccount()">Créer un compte</span>
             </p>
-            <p class="card-subtitle" v-else>
+            <p class="card-subtitle mb-3" v-else>
                 Vous avez déjà un compte ?
                 <span class="card-action" @click="switchToLogin()">Se connecter</span>
             </p>
