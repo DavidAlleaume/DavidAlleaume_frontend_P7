@@ -21,7 +21,7 @@
                         <router-link to="/profile"><fa icon="user-cog" class="icon-custom link" /></router-link>
                     </li>
                     <li>
-                        <router-link @click="logout()" to="/profile"><fa icon="sign-out-alt" class="icon-custom link" /></router-link>      
+                        <router-link @click="logout()" to="/"><fa icon="sign-out-alt" class="icon-custom link" /></router-link>      
                     </li>
                 </ul>
             </div>
