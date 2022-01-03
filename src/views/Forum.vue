@@ -9,7 +9,7 @@
                 v-model="content"
                 aria-label="Contenu du message">
             </textarea>
-            <label class="input-label" for="floatingTextarea">Rédigez votre message ici...</label>
+            <label class="input-label" for="floatingTextarea"><span>Rédigez votre message ici...</span></label>
             <div id="preview" v-if="preview && displayPreview == true">
                 <img class="preview" :src="preview" :alt="preview" />
                 <button
@@ -35,9 +35,9 @@
                     enctype="multipart/form-data"
                     @input="selectFile" />
                 <label class="file-label" for="file">
-                    <fa class="file-upload-icon" icon="file-upload" />Ajouter une image
+                    <fa class="file-upload-icon" icon="file-upload" /><span>Ajouter une image</span>
                 </label>
-                <p class="attachment-type">Formats requis: .jpg .gif .png </p>
+                <p class="attachment-type">Formats requis: .jpg .gif .png</p>
             </div>
             <button
                 @click="createPost()"

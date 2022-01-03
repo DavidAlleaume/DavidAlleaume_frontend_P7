@@ -9,7 +9,7 @@
                 <p>Inscrit sur le forum depuis le {{ dateTime(postUser.createdAt) }}</p>
                 <p v-if="postUser.isAdmin === true"><strong>Rôle:</strong> Administrateur</p>
             </div>
-            <button v-if="isAdmin === true" @click="deleteProfile()" type="button" class="btn btn-danger mt-5">Supprimer cet utilisateur</button>
+            <button v-if="isAdmin === true" @click="deleteProfile()" type="button" class="btn btn-danger mt-5"><span>Supprimer cet utilisateur</span></button>
         </div>
     </div>
 </template>

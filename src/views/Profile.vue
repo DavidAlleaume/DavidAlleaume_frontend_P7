@@ -13,7 +13,7 @@
         </div>
         <div >
             <button @click="deleteProfile()" type="button" class="btn btn-danger mt-5">
-                Supprimer votre compte
+                <span>Supprimer votre compte</span>
             </button>
         </div>
     </div>
