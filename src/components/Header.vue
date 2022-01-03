@@ -18,10 +18,10 @@
                         <router-link class-active="active" class="forum-link link" to="/forum">Forum</router-link>                      
                     </li>
                     <li>
-                        <router-link to="/profile"><fa icon="user-cog" class="icon-custom link" /></router-link>
+                        <router-link to="/profile" class="link"><fa icon="user-cog" role="img" class="icon-custom" /> Profil</router-link>
                     </li>
                     <li>
-                        <router-link @click="logout()" to="/"><fa icon="sign-out-alt" class="icon-custom link" /></router-link>      
+                        <router-link @click="logout()" to="/" class="link"><fa icon="sign-out-alt" role="img" class="icon-custom" /> Déconnexion</router-link>      
                     </li>
                 </ul>
             </div>

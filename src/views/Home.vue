@@ -13,21 +13,25 @@
             <h2 class="card-title" v-else>Inscription</h2>
             <p class="card-subtitle mb-3" v-if="mode == 'login'">
                 Vous n'avez pas encore de compte ?
-                <span class="card-action" @click="switchToCreateAccount()">Créer un compte</span>
+                <a class="card-action" @click="switchToCreateAccount()">Créer un compte</a>
             </p>
             <p class="card-subtitle mb-3" v-else>
                 Vous avez déjà un compte ?
-                <span class="card-action" @click="switchToLogin()">Se connecter</span>
+                <a class="card-action" @click="switchToLogin()">Se connecter</a>
             </p>
             <div class="form-row">
-                <input v-model="email" class="form-row-input" type="text" placeholder="Adresse mail" />
+                <label for="email">email</label>
+                <input v-model="email" id="email" class="form-row-input" type="text" />
             </div>
             <div class="form-row" v-if="mode == 'create'">
-                <input v-model="firstname" class="form-row-input" type="text" placeholder="Prénom" />
-                <input v-model="lastname" class="form-row-input" type="text" placeholder="Nom" />
+                <label for="firstname">Prénom</label>
+                <input v-model="firstname" id="firstname" class="form-row-input" type="text" />
+                <label for="lastname">Nom</label>
+                <input v-model="lastname" id="lastname" class="form-row-input" type="text" />
             </div>
             <div class="form-row">
-                <input v-model="password" class="form-row-input" type="password" placeholder="Mot de passe" />
+                <label for="password">Mot de passe</label>
+                <input v-model="password" id="password" class="form-row-input" type="password" />
             </div>
             <div class="form-row error-message">
                 <p class="my-3 text-danger">{{ message }}</p>

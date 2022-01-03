@@ -55,15 +55,16 @@ header {
     background: #1976d2;
 }
 .button--disabled {
-    background: #cecece;
+    background: #5c5c5c;
     color: #ececec;
 }
 .button--disabled:hover {
     cursor: not-allowed;
-    background: #cecece;
+    background: #414141;
 }
 .form-row {
     display: flex;
+    flex-direction: column;
     margin: 16px 0px;
     gap: 16px;
     flex-wrap: wrap;
